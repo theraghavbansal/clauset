@@ -13,16 +13,23 @@
 
 **The Local-First Memory Mesh, Data Residency Firewall, and Grounded RAG Workbench for Autonomous AI Edge Agents.**
 
-[![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)](https://github.com/13thprotocol/clauset)
+[![Live Demo](https://img.shields.io/badge/live_demo-clauset--workbench.onrender.com-success?style=for-the-badge&logo=render)](https://clauset-workbench.onrender.com/)
+
+[![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)](https://github.com/theraghavbansal/clauset)
 [![Verification](https://img.shields.io/badge/test_suite-11%2F11_verified-success.svg)](scripts/verify.mjs)
 [![Runtime](https://img.shields.io/badge/engine-Dual--Engine_(Qdrant_Edge_%2B_Embedded_TS)-blue.svg)](#dual-engine-architecture)
 [![Residency Shield](https://img.shields.io/badge/security-Zero--Exfiltration_Residency_Shield-red.svg)](#data-residency-firewall)
 [![UI Theme](https://img.shields.io/badge/ui-Light_%26_Dark_Mode_Workbench-orange.svg)](#workbench-ui-tour)
 [![License](https://img.shields.io/badge/license-MIT-purple.svg)](LICENSE)
 
-[Quickstart](#quickstart-5-minute-setup) • [Architecture](#system-architecture) • [Key Capabilities](#core-capabilities--invariants) • [Workbench Tour](#workbench-ui-tour) • [TypeScript SDK](#programmatic-typescript-sdk) • [CLI Reference](#cli-wrapper-reference) • [REST API](#rest-api-reference) • [Hackathon Dossier](#hackathon-submission-dossier)
+**[🌐 Open Live Deployed Workbench](https://clauset-workbench.onrender.com/)**
+
+[Live App](https://clauset-workbench.onrender.com/) • [Quickstart](#quickstart-5-minute-setup) • [Architecture](#system-architecture) • [Key Capabilities](#core-capabilities--invariants) • [Workbench Tour](#workbench-ui-tour) • [TypeScript SDK](#programmatic-typescript-sdk) • [CLI Reference](#cli-wrapper-reference) • [REST API](#rest-api-reference) • [Hackathon Dossier](#hackathon-submission-dossier)
 
 </div>
+
+> 🚀 **Live Production Deployment**: Experience Clauset live in your browser at **[https://clauset-workbench.onrender.com/](https://clauset-workbench.onrender.com/)**.
+> Test air-gapped network severance ("Cut Link"), sub-5ms hybrid RAG recall, live telemetry streams, and 3-way partition conflict arbitration with zero installation.
 
 ---
 
@@ -190,6 +197,8 @@ npm.cmd run dev
 ```
 
 Open your browser to: **`http://localhost:3000`**
+
+*(Or skip local installation and try the live cloud deployment directly at **[https://clauset-workbench.onrender.com/](https://clauset-workbench.onrender.com/)**)*
 
 ### 3. Optional: Bootstrap Python Qdrant Edge Engine
 If you intend to run the native Python Qdrant Edge engine alongside the Next.js gateway:
@@ -473,6 +482,8 @@ npm run verify
 ### Target Track & Domain
 - **Track**: Autonomous Agent Infrastructure & Edge Computing / Privacy-Preserving AI
 - **Tagline**: The Local-First Memory Mesh, Data Residency Firewall, and Grounded RAG Workbench for Autonomous AI Edge Agents.
+- **Live Demo**: [https://clauset-workbench.onrender.com/](https://clauset-workbench.onrender.com/)
+- **GitHub Repository**: [https://github.com/theraghavbansal/clauset](https://github.com/theraghavbansal/clauset)
 
 ### The Innovation
 1. **Air-Gapped Autonomous Operation**: Agents do not require an active internet uplink to retain full semantic recall and reasoning capabilities.
