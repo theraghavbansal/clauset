@@ -192,7 +192,7 @@ npm.cmd run dev
 Open your browser to: **`http://localhost:3000`**
 
 ### 3. Optional: Bootstrap Python Qdrant Edge Engine
-If you wish to run the native Python Qdrant Edge engine alongside the Next.js gateway:
+If you intend to run the native Python Qdrant Edge engine alongside the Next.js gateway:
 
 ```bash
 node scripts/launch.mjs --bootstrap-python
