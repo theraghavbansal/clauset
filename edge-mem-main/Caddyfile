@@ -1,0 +1,39 @@
+:81 {
+	# Only the edge engines (mirror EDGE_PORTS in the Next proxy) and only their
+	# API — an arbitrary XTransformPort would reach any local service.
+	@edge_3030 {
+		path /api/edge/*
+		query XTransformPort=3030
+	}
+	@edge_3031 {
+		path /api/edge/*
+		query XTransformPort=3031
+	}
+
+	handle @edge_3030 {
+		reverse_proxy localhost:3030 {
+			header_up Host {host}
+			header_up X-Forwarded-For {remote_host}
+			header_up X-Forwarded-Proto {scheme}
+			header_up X-Real-IP {remote_host}
+		}
+	}
+
+	handle @edge_3031 {
+		reverse_proxy localhost:3031 {
+			header_up Host {host}
+			header_up X-Forwarded-For {remote_host}
+			header_up X-Forwarded-Proto {scheme}
+			header_up X-Real-IP {remote_host}
+		}
+	}
+
+	handle {
+		reverse_proxy localhost:3000 {
+			header_up Host {host}
+			header_up X-Forwarded-For {remote_host}
+			header_up X-Forwarded-Proto {scheme}
+			header_up X-Real-IP {remote_host}
+		}
+	}
+}

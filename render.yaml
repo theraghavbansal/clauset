@@ -1,0 +1,28 @@
+# Render Blueprint for Clauset
+# Deploys the Next.js Workbench & Gateway + optional Python Qdrant Edge engine.
+services:
+  - type: web
+    name: clauset-workbench
+    runtime: node
+    plan: free
+    buildCommand: npm install && npm run build
+    startCommand: npm run next:start
+    healthCheckPath: /api/protocol/health
+    envVars:
+      - key: PROTOCOL_FORCE_EMBEDDED
+        value: "1"
+      - key: PORT
+        value: "3000"
+
+  - type: web
+    name: clauset-edge-engine
+    runtime: python
+    plan: free
+    buildCommand: pip install -r edge-mem-main/mini-services/edge-engine/requirements.txt && EDGE_WARMUP=1 bash edge-mem-main/mini-services/edge-engine/start.sh
+    startCommand: bash edge-mem-main/mini-services/edge-engine/start.sh
+    healthCheckPath: /api/edge/health
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.13"
+      - key: EDGE_TOKEN
+        generateValue: true

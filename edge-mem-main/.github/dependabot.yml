@@ -1,0 +1,61 @@
+# Regenerated without YAML anchors (shared group blocks were emitted as aliases).
+# Updates are grouped so a weekly Dependabot run is mergeable in one action.
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: /
+  schedule:
+    interval: weekly
+  open-pull-requests-limit: 5
+  groups:
+    minor-and-patch:
+      patterns:
+      - '*'
+      update-types:
+      - minor
+      - patch
+    actions-and-tooling:
+      patterns:
+      - actions/*
+      - docker/*
+      - codecov/*
+      - oven-sh/*
+      - github/*
+- package-ecosystem: pip
+  directory: /mini-services/edge-engine
+  schedule:
+    interval: weekly
+  open-pull-requests-limit: 5
+  groups:
+    minor-and-patch:
+      patterns:
+      - '*'
+      update-types:
+      - minor
+      - patch
+    actions-and-tooling:
+      patterns:
+      - actions/*
+      - docker/*
+      - codecov/*
+      - oven-sh/*
+      - github/*
+- package-ecosystem: github-actions
+  directory: /
+  schedule:
+    interval: weekly
+  open-pull-requests-limit: 5
+  groups:
+    minor-and-patch:
+      patterns:
+      - '*'
+      update-types:
+      - minor
+      - patch
+    actions-and-tooling:
+      patterns:
+      - actions/*
+      - docker/*
+      - codecov/*
+      - oven-sh/*
+      - github/*

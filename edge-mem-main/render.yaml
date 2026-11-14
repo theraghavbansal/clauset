@@ -1,0 +1,14 @@
+# Render blueprint for the Clauset core edge-engine (Python service).
+services:
+  - type: web
+    name: clauset-edge-engine
+    runtime: python
+    plan: free
+    buildCommand: pip install -r mini-services/edge-engine/requirements.txt && EDGE_WARMUP=1 bash mini-services/edge-engine/start.sh
+    startCommand: bash mini-services/edge-engine/start.sh
+    healthCheckPath: /api/edge/health
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.13"
+      - key: EDGE_TOKEN
+        generateValue: true
