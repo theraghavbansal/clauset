@@ -32,7 +32,10 @@ import type {
 } from "./protocol-types";
 import { SHARD_IDS, SHARD_PRESENTATION } from "./protocol-types";
 
-const DATA_DIR = path.join(process.cwd(), ".protocol-data");
+const DATA_DIR =
+  process.env.VERCEL || process.env.AWS_LAMBDA_FUNCTION_NAME || process.env.NETLIFY
+    ? path.join(process.env.TMPDIR || "/tmp", ".protocol-data")
+    : (process.env.CLAUSET_DATA_DIR || path.join(process.cwd(), ".protocol-data"));
 const STATE_FILE = path.join(DATA_DIR, "mesh-state.json");
 const DENSE_DIM = 128;
 
@@ -666,10 +669,14 @@ class ProtocolRuntime {
   }
 
   private save(target: MeshStore = this.store) {
-    fs.mkdirSync(DATA_DIR, { recursive: true });
-    const tmp = `${STATE_FILE}.tmp`;
-    fs.writeFileSync(tmp, JSON.stringify(target, null, 2), "utf-8");
-    fs.renameSync(tmp, STATE_FILE);
+    try {
+      fs.mkdirSync(DATA_DIR, { recursive: true });
+      const tmp = `${STATE_FILE}.tmp`;
+      fs.writeFileSync(tmp, JSON.stringify(target, null, 2), "utf-8");
+      fs.renameSync(tmp, STATE_FILE);
+    } catch {
+      /* In read-only serverless sandboxes, runtime keeps in-memory state cleanly */
+    }
   }
 
   private log(device: string, kind: string, message: string, meta: Record<string, unknown> = {}) {

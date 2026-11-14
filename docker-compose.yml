@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  clauset:
+    build: .
+    container_name: clauset-workbench
+    ports:
+      - "3000:3000"
+    environment:
+      - PORT=3000
+      - PROTOCOL_FORCE_EMBEDDED=1
+    volumes:
+      - clauset_data:/app/.protocol-data
+    restart: unless-stopped
+
+volumes:
+  clauset_data:
